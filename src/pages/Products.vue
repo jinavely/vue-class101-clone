@@ -11,7 +11,9 @@
             <li v-for="(item, index) in navigation" :key="index">
               <button @click="handleMoveTo($event, item)">
                 {{ item }}
-                <span v-if="item === '커뮤니티'">&nbsp;5개</span>
+                <span v-if="item === '커뮤니티'"
+                  >&nbsp;{{ communityData.length }}개</span
+                >
               </button>
             </li>
           </nav>
@@ -73,7 +75,7 @@
 
 <script>
 import { Fragment } from 'vue-fragment';
-import { getLeaderBoard } from '@/api/index';
+import { getLeaderBoard, getCommunity, getCurriculum } from '@/api/index';
 import Aside from '../components/products/Aside.vue';
 import Visual from '../components/products/Visual.vue';
 import TodayProduct from '../components/products/TodayProduct.vue';
@@ -83,7 +85,6 @@ import Curriculum from '../components/products/Curriculum.vue';
 import Creator from '../components/products/Creator.vue';
 import Community from '../components/products/Community.vue';
 import Loader from '../components/common/Loader.vue';
-import { getCurriculum } from '../api';
 export default {
   name: 'Products',
   components: {
@@ -103,7 +104,7 @@ export default {
       loading: false,
 
       navigation: {
-        rReviews: '후기',
+        reviews: '후기',
         intro: '클래스 소개',
         curriculum: '커리큘럼',
         creator: '크리에이터',
@@ -114,14 +115,13 @@ export default {
       leaderBoardData: {},
       // getCurriculum
       curriculumData: [],
+      // getCommunity
+      communityData: [],
     };
   },
   created() {
-    // getLeaderBoard
-    this.fetchLeaderBoard();
-
-    // getCurriculum
-    this.fetchCurriculum();
+    // fetchData
+    this.fetchData();
   },
   mounted() {
     window.addEventListener('scroll', this.handleScroll);
@@ -132,24 +132,18 @@ export default {
     window.removeEventListener('resize', this.handleScroll);
   },
   methods: {
-    // getLeaderBoard
-    async fetchLeaderBoard() {
+    // fetchData
+    async fetchData() {
       try {
         this.loading = true;
-        const { data } = await getLeaderBoard();
-        this.leaderBoardData = data;
-      } catch (error) {
-        console.log(error);
-      } finally {
-        this.loading = false;
-      }
-    },
-    // getCurriculum
-    async fetchCurriculum() {
-      try {
-        this.loading = true;
-        const { data } = await getCurriculum();
-        this.curriculumData = data;
+        const { data: lData } = await getLeaderBoard();
+        this.leaderBoardData = lData;
+
+        const { data: cData } = await getCurriculum();
+        this.curriculumData = cData;
+
+        const { data: c2Data } = await getCommunity();
+        this.communityData = c2Data;
       } catch (error) {
         console.log(error);
       } finally {
