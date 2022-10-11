@@ -21,7 +21,7 @@
         <p v-html="creatorData.text" />
       </div>
 
-      <Btn text="더보기" @click="onClick" /><!-- 더보기 버튼 -->
+      <Btn text="더보기" @click="onClick" Nav="Nav" /><!-- 더보기 버튼 -->
     </section>
   </div>
 </template>
@@ -59,8 +59,17 @@ export default {
 
     // 더보기
     onClick(e) {
-      this.show = true;
-      e.target.style.display = 'none';
+      const headerH = document.querySelector('header').clientHeight + 48;
+
+      this.show = !this.show;
+      this.show
+        ? (e.target.innerText = '접기')
+        : (e.target.innerText = '더보기');
+
+      if (!this.show) {
+        const scrollTop = e.target.offsetParent.offsetTop - headerH;
+        window.scrollTo({ top: scrollTop });
+      }
     },
   },
 };
