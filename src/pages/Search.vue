@@ -5,23 +5,17 @@
       <li v-for="item in searchData" :key="item.id">
         <a href="/">
           <img
-            src="https://image.tmdb.org/t/p/w500//VuukZLgaCrho2Ar8Scl9HtV3yD.jpg"
-            alt="Venom"
+            :src="`https://image.tmdb.org/t/p/w500${item.backdrop_path}`"
+            :alt="item.title"
+            v-if="item.backdrop_path"
           />
-          <!-- <div class="empty-image" /> -->
+          <div class="empty-image" v-else />
+
           <h5>{{ item.title }}</h5>
-          <p class="text">
-            진실을 위해서라면 몸을 사리지 않고 사회의 부조리를 취재하는 정의로운
-            열혈 기자 에디 브록. 거대 기업 라이프 파운데이션의 생체실험에 의혹을
-            품고 뒤를 쫓던 그는 이들의 사무실에 잠입했다가 실험실에서 외계
-            생물체 심비오트의 기습 공격을 받게 된다. 심비오트가 숙주의 몸과
-            정신을 지배할 때 능력을 발휘하는 베놈은 에디의 몸에 기생하며 갖가지
-            소동을 일으킨다. 한편 비밀리에 인간과 심비오트를 결합해 새로운
-            생명체를 만들려는 시도를 계속하던 라이프 파운데이션의 회장 드레이크
-            또한 심비오트의 숙주가 된다.
-          </p>
+          <p class="text">{{ item.overview }}</p>
           <p class="search-info">
-            <span>평점: 6.8</span><span>조회수: 13749</span>
+            <span>평점: {{ item.vote_average }}</span
+            ><span>조회수: {{ item.vote_count }}</span>
           </p>
         </a>
       </li>
@@ -43,7 +37,6 @@ export default {
 
       // getSearch
       searchData: [],
-      keyword: '',
     };
   },
   created() {
@@ -55,7 +48,7 @@ export default {
     async fetchSearch() {
       try {
         this.loading = true;
-        const keyword = new URLSearchParams(location.search).get('keyword');
+        const keyword = new URL(location.href).searchParams.get('keywords');
         const { results } = await getSearch(keyword);
         this.searchData = results;
       } catch (error) {

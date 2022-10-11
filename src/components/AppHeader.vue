@@ -13,8 +13,8 @@
         </router-link>
         <div class="navbar-wrap">
           <ul class="navbar">
-            <li><router-link to="/">구독</router-link></li>
-            <li><router-link to="/products">스토어</router-link></li>
+            <li><router-link to="/products">구독</router-link></li>
+            <li><router-link to="/store">스토어</router-link></li>
           </ul>
           <form
             class="searchbox"
@@ -40,34 +40,8 @@
               <div class="search-box">
                 <h4>최근 검색어<button>전체삭제</button></h4>
                 <ul class="recent-list">
-                  <li>
-                    <button>베놈</button>
-                    <button class="btn-delete">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="m13.75 12 7.2-7.15c.1-.1.1-.25 0-.35L19.5 3.05c-.1-.1-.25-.1-.35 0L12 10.25l-7.15-7.2c-.1-.1-.25-.1-.35 0L3.05 4.5c-.1.1-.1.25 0 .35l7.2 7.15-7.2 7.15c-.1.1-.1.25 0 .35l1.45 1.45c.1.1.25.1.35 0l7.15-7.2 7.15 7.15c.1.1.25.1.35 0l1.4-1.4c.1-.1.1-.25 0-.35L13.75 12Z"
-                        ></path>
-                      </svg>
-                    </button>
-                  </li>
-                  <li>
-                    <button>오펀: 천사의 탄생</button>
-                    <button class="btn-delete">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="m13.75 12 7.2-7.15c.1-.1.1-.25 0-.35L19.5 3.05c-.1-.1-.25-.1-.35 0L12 10.25l-7.15-7.2c-.1-.1-.25-.1-.35 0L3.05 4.5c-.1.1-.1.25 0 .35l7.2 7.15-7.2 7.15c-.1.1-.1.25 0 .35l1.45 1.45c.1.1.25.1.35 0l7.15-7.2 7.15 7.15c.1.1.25.1.35 0l1.4-1.4c.1-.1.1-.25 0-.35L13.75 12Z"
-                        ></path>
-                      </svg>
-                    </button>
-                  </li>
-                  <li>
-                    <button>오펀: 천사의 탄생</button>
+                  <li v-if="keywords">
+                    <button>{{ keywords }}</button>
                     <button class="btn-delete">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +81,7 @@
 
 <script>
 import { Fragment } from 'vue-fragment';
-import { getPopularSearch, getSearch } from '@/api/index';
+import { getPopularSearch } from '@/api/index';
 import HeaderBanner from './HeaderBanner.vue';
 
 export default {
@@ -120,34 +94,19 @@ export default {
 
       // getPopularSearch
       popularSearchData: [],
-      // getSearch
-      searchData: [],
-      keyword: '',
+      keywords: [],
     };
   },
   created() {
-    // getPopularSearch
-    this.fetchPopularSearch();
     // getSearch
     this.fetchSearch();
   },
   methods: {
-    // getPopularSearch
-    async fetchPopularSearch() {
-      try {
-        const { results } = await getPopularSearch();
-        this.popularSearchData = results.slice(0, 10);
-      } catch (error) {
-        console.log(error);
-      }
-    },
-
     // getSearch
     async fetchSearch() {
       try {
-        const { results } = await getSearch(this.keyword);
-        this.searchData = results;
-        console.log(await getSearch('토르'));
+        const { results: popularSearchResults } = await getPopularSearch();
+        this.popularSearchData = popularSearchResults.slice(0, 10);
       } catch (error) {
         console.log(error);
       }
@@ -162,10 +121,14 @@ export default {
     // 검색
     handleSubmit(e) {
       e.preventDefault();
-      this.$router.push(`/search?keyword=${this.keyword}`);
+      if (this.keywords !== '') {
+        this.$router.push(`/search?keywords=${this.keywords}`);
+      } else {
+        alert('검색어를 입력해주세요!');
+      }
     },
     onChangeValue(e) {
-      this.keyword = e.target.value;
+      this.keywords = e.target.value;
     },
   },
 };

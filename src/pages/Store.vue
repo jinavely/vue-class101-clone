@@ -1,0 +1,13 @@
+<template>
+  <div class="store">
+    store
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'Store',
+};
+</script>
+
+<style lang="scss" scoped></style>

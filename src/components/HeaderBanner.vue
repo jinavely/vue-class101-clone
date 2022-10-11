@@ -1,8 +1,8 @@
 <template>
   <div class="banner">
-    <div class="banner-inner">
+    <div class="banner-inner" v-if="visible">
       <a href="#">듣고 싶은 클래스, 14일 무료 체험하기 &gt;</a>
-      <button class="close">
+      <button class="close" @click="visible = false">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="18"
@@ -23,6 +23,11 @@
 <script>
 export default {
   name: 'HeaderBanner',
+  data() {
+    return {
+      visible: true,
+    };
+  },
 };
 </script>
 <style scoped>
