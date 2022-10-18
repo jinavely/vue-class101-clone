@@ -338,6 +338,7 @@ import LayerPopup from '../common/LayerPopup.vue';
 
 export default {
   name: 'Aside',
+  components: { LayerPopup },
   data() {
     return {
       // getAside
@@ -378,7 +379,6 @@ export default {
       this.serviceVisible = false;
     },
   },
-  components: { LayerPopup },
 };
 </script>
 

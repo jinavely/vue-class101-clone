@@ -23,12 +23,15 @@ const getVisual = () => {
 
 // leaderBoard
 const getLeaderBoard = () => {
-  return instance.get('/leaderBoard');
+  return instance.get('/leader-board');
 };
 
 // reviews
 const getReviews = () => {
   return instance.get('/reviews');
+};
+const postCreateReviews = (reviewData) => {
+  return instance.post(`/reviews`, reviewData);
 };
 
 // curriculum
@@ -48,7 +51,7 @@ const getCommunity = () => {
 
 // todayProduct
 const getTodayProduct = () => {
-  return instance.get('/todayProduct');
+  return instance.get('/today-product');
 };
 
 // leaderBoard
@@ -62,6 +65,7 @@ export {
   getVisual,
   getLeaderBoard,
   getReviews,
+  postCreateReviews,
   getCurriculum,
   getCreator,
   getCommunity,

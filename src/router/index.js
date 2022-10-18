@@ -3,9 +3,10 @@ import VueRouter from 'vue-router';
 import Main from '../pages/Main.vue';
 import Login from '../pages/Login.vue';
 import Search from '../pages/Search.vue';
-import Store from '../pages/Store.vue';
 import Products from '../pages/Products.vue';
 import NotFound from '../pages/NotFound.vue';
+import ReviewPage from '../pages/products/ReviewPage.vue';
+import ReviewCreatePage from '../pages/products/ReviewCreatePage.vue';
 
 Vue.use(VueRouter);
 
@@ -27,9 +28,14 @@ export default new VueRouter({
       component: Search,
     },
     {
-      path: '/store',
-      name: 'Store',
-      component: Store,
+      path: '/reviewCreatePage',
+      name: 'ReviewCreatePage',
+      component: ReviewCreatePage,
+    },
+    {
+      path: '/reviewPage',
+      name: 'ReviewPage',
+      component: ReviewPage,
     },
     {
       path: '/products',

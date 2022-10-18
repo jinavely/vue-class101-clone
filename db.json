@@ -35,150 +35,6 @@
       "name": "Small Rubber Salad",
       "price": "455.00",
       "imageUrl": "http://placeimg.com/640/480/fashion"
-    },
-    {
-      "id": 6,
-      "name": "Handmade Granite Mouse",
-      "price": "591.00",
-      "imageUrl": "http://placeimg.com/640/480/fashion"
-    },
-    {
-      "id": 7,
-      "name": "Awesome Concrete Shirt",
-      "price": "165.00",
-      "imageUrl": "http://placeimg.com/640/480/fashion"
-    },
-    {
-      "id": 8,
-      "name": "Sleek Steel Towels",
-      "price": "607.00",
-      "imageUrl": "http://placeimg.com/640/480/fashion"
-    },
-    {
-      "id": 9,
-      "name": "Handcrafted Plastic Computer",
-      "price": "289.00",
-      "imageUrl": "http://placeimg.com/640/480/fashion"
-    },
-    {
-      "id": 10,
-      "name": "Small Fresh Soap",
-      "price": "777.00",
-      "imageUrl": "http://placeimg.com/640/480/fashion"
-    },
-    {
-      "id": 11,
-      "name": "Practical Granite Chicken",
-      "price": "518.00",
-      "imageUrl": "http://placeimg.com/640/480/fashion"
-    },
-    {
-      "id": 12,
-      "name": "Awesome Metal Hat",
-      "price": "376.00",
-      "imageUrl": "http://placeimg.com/640/480/fashion"
-    },
-    {
-      "id": 13,
-      "name": "Refined Soft Towels",
-      "price": "723.00",
-      "imageUrl": "http://placeimg.com/640/480/fashion"
-    },
-    {
-      "id": 14,
-      "name": "Ergonomic Concrete Cheese",
-      "price": "339.00",
-      "imageUrl": "http://placeimg.com/640/480/fashion"
-    },
-    {
-      "id": 15,
-      "name": "Generic Soft Sausages",
-      "price": "669.00",
-      "imageUrl": "http://placeimg.com/640/480/fashion"
-    },
-    {
-      "id": 16,
-      "name": "Incredible Metal Ball",
-      "price": "697.00",
-      "imageUrl": "http://placeimg.com/640/480/fashion"
-    },
-    {
-      "id": 17,
-      "name": "Sleek Soft Shirt",
-      "price": "654.00",
-      "imageUrl": "http://placeimg.com/640/480/fashion"
-    },
-    {
-      "id": 18,
-      "name": "Rustic Plastic Fish",
-      "price": "133.00",
-      "imageUrl": "http://placeimg.com/640/480/fashion"
-    },
-    {
-      "id": 19,
-      "name": "Gorgeous Cotton Soap",
-      "price": "38.00",
-      "imageUrl": "http://placeimg.com/640/480/fashion"
-    },
-    {
-      "id": 20,
-      "name": "Incredible Concrete Chair",
-      "price": "569.00",
-      "imageUrl": "http://placeimg.com/640/480/fashion"
-    },
-    {
-      "id": 21,
-      "name": "Handcrafted Soft Pizza",
-      "price": "277.00",
-      "imageUrl": "http://placeimg.com/640/480/fashion"
-    },
-    {
-      "id": 22,
-      "name": "Intelligent Granite Chicken",
-      "price": "509.00",
-      "imageUrl": "http://placeimg.com/640/480/fashion"
-    },
-    {
-      "id": 23,
-      "name": "Handcrafted Rubber Ball",
-      "price": "487.00",
-      "imageUrl": "http://placeimg.com/640/480/fashion"
-    },
-    {
-      "id": 24,
-      "name": "Practical Frozen Pants",
-      "price": "607.00",
-      "imageUrl": "http://placeimg.com/640/480/fashion"
-    },
-    {
-      "id": 25,
-      "name": "Sleek Plastic Mouse",
-      "price": "909.00",
-      "imageUrl": "http://placeimg.com/640/480/fashion"
-    },
-    {
-      "id": 26,
-      "name": "Incredible Frozen Gloves",
-      "price": "172.00",
-      "imageUrl": "http://placeimg.com/640/480/fashion"
-    },
-    {
-      "id": 27,
-      "name": "Intelligent Concrete Salad",
-      "price": "501.00",
-      "imageUrl": "http://placeimg.com/640/480/fashion"
-    },
-    {
-      "id": 28,
-      "name": "Fantastic Metal Soap",
-      "price": "75.00",
-      "imageUrl": "http://placeimg.com/640/480/fashion"
-    },
-    {
-      "id": 29,
-      "name": "Intelligent Cotton Shirt",
-      "price": "130.00",
-      "imageUrl": "http://placeimg.com/640/480/fashion"
     }
   ],
   "carts": [
@@ -217,7 +73,7 @@
       "imageAlt": ""
     }
   ],
-  "leaderBoard": {
+  "leader-board": {
     "title": "전자책 하나로 경제적 여유 만들기",
     "description": "한 달 안에 전자책 완성하고 환급받자",
     "imageURL": "https://cdn.class101.net/images/9671c0c0-3349-48aa-b04a-a24c7a37fa19/autoxauto.webp",
@@ -590,7 +446,7 @@
       ]
     }
   ],
-  "todayProduct": [
+  "today-product": [
     {
       "id": 1,
       "url": "/login",
@@ -647,7 +503,7 @@
     "alt": "한강 위에 도시 촬영하는 모습",
     "text": "안녕하세요.\n저는 <오아시스홈>이라는 블로그를 운영하고 있는 네이버 리빙 인플루언서 '오아시스' 입니다.\n\n저는 30년이 다 되어가는 오래된 우리집을 업체에 맡기지 않고, 셀프인테리어를 통해 고쳤으며 그 과정과 내용을 블로그에 올리면서 6000여명의 고마운 이웃이 생겼습니다. 가성비와 가심비를 모두 만족하는 미니멀한 인테리어의 비밀과 디테일을 공개하여 오늘의집은 물론, 네이버리빙에는 20번도 넘게 나왔고, 덕분에 많은 이웃들의 응원과 사랑을 받으며 매일매일 성장하고 있습니다.\n\n저의 내공을 다지기 위해 공부하려는 마음으로 셀프인테리어 멘토링을 시작했고, 10번이 넘는 셀프인테리어를 직·간접적으로 경험하며 저는 어느덧 셀프인테리어 전문가가 되었습니다. 또 배운 것을 나누기 위해 블로그 내에서 셀프인테리어 특강을 진행했었고 강의수익금 200여만원은 전액 기부하여 보내주신 사랑을 의미있게 나누기도 했습니다.\n\n저는 셀프인테리어를 통해 공사비용을 많이 아낄 수 있었으며, 아름답고 미니멀한 공간에 대해 끊임없이 생각하고 구현하기를 반복했습니다. 매일을 연구하고 성장하며 간결하고 단순한 삶에 대한 영감을 이어가고 있습니다. 치열하게 고민했던 저의 셀프인테리어 노하우와 소중한 경험을 &lt;클래스101&gt; 에서 더욱 많은 사람들에게 나누고 싶습니다.\n\n셀프인테리어의 모든 과정과 디테일을 공개합니다.\n클래스에서 뵙겠습니다!\n\n<p style='text-align: right'>셀프인테리어 멘토</p><p style='text-align: right'>오아시스 드림</p>"
   },
-  "classIntro": {
+  "class-intro": {
     "id": 1,
     "title": "<strong style='color: rgb(0, 78, 195)'>초급자</strong>분들을 위한<br /><strong style='color: rgb(0, 78, 195)'>유튜브 채널로 수익창출</strong><br /> 클래스입니다.",
     "text1": "제가 알려드릴 내용들은<br />내용을 정말 정말 많이 담았습니다.",

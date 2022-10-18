@@ -80,7 +80,7 @@ import Aside from '../components/products/Aside.vue';
 import Visual from '../components/products/Visual.vue';
 import TodayProduct from '../components/products/TodayProduct.vue';
 import Intro from '../components/products/Intro.vue';
-import Reviews from '../components/products/Reviews.vue';
+import Reviews from '../components/products/review/Reviews.vue';
 import Curriculum from '../components/products/Curriculum.vue';
 import Creator from '../components/products/Creator.vue';
 import Community from '../components/products/Community.vue';

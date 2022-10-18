@@ -13,8 +13,8 @@
         </router-link>
         <div class="navbar-wrap">
           <ul class="navbar">
-            <li><router-link to="/products">구독</router-link></li>
-            <li><router-link to="/store">스토어</router-link></li>
+            <li><router-link to="/">구독</router-link></li>
+            <li><router-link to="/products">스토어</router-link></li>
           </ul>
           <form
             class="searchbox"
@@ -40,8 +40,8 @@
               <div class="search-box">
                 <h4>최근 검색어<button>전체삭제</button></h4>
                 <ul class="recent-list">
-                  <li v-if="keywords">
-                    <button>{{ keywords }}</button>
+                  <!-- <li v-if="keyword">
+                    <button>{{ keyword }}</button>
                     <button class="btn-delete">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +52,7 @@
                         ></path>
                       </svg>
                     </button>
-                  </li>
+                  </li> -->
                 </ul>
               </div>
               <div class="search-box">
@@ -94,7 +94,7 @@ export default {
 
       // getPopularSearch
       popularSearchData: [],
-      keywords: [],
+      keyword: '',
     };
   },
   created() {
@@ -121,14 +121,14 @@ export default {
     // 검색
     handleSubmit(e) {
       e.preventDefault();
-      if (this.keywords !== '') {
-        this.$router.push(`/search?keywords=${this.keywords}`);
+      if (this.keyword !== '') {
+        this.$router.push(`/search?keyword=${this.keyword}`);
       } else {
         alert('검색어를 입력해주세요!');
       }
     },
     onChangeValue(e) {
-      this.keywords = e.target.value;
+      this.keyword = e.target.value;
     },
   },
 };
@@ -236,6 +236,7 @@ header {
     padding: 16px;
     background: #fff;
     border: 1px solid #d9d9d9;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
     .search-box {
       ~ .search-box {
         margin-top: 30px;

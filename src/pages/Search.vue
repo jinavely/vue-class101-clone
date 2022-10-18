@@ -48,7 +48,7 @@ export default {
     async fetchSearch() {
       try {
         this.loading = true;
-        const keyword = new URL(location.href).searchParams.get('keywords');
+        const keyword = new URL(location.href).searchParams.get('keyword');
         const { results } = await getSearch(keyword);
         this.searchData = results;
       } catch (error) {

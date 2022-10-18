@@ -48,7 +48,9 @@
       </ul>
       <div class="review-student">
         <h4>실제 수강생 후기</h4>
-        <button class="btn">후기 작성하기</button>
+        <router-link to="/reviewCreatePage" class="btn"
+          >후기 작성하기</router-link
+        >
       </div>
       <div class="review-total">
         <a
@@ -240,8 +242,8 @@
           }개의 후기 더보기`
         "
         :button="false"
-        link="https://class101.net/reviews/list?klassId=5ddaa3537c586d0d8f66f201"
-        target="_blank"
+        link="/reviewPage"
+        target="_self"
       /><!-- 더보기 버튼 -->
     </section>
   </div>
@@ -249,7 +251,7 @@
 
 <script>
 import { getReviews } from '@/api/index';
-import Btn from '../common/Btn.vue';
+import Btn from '@/components/common/Btn.vue';
 
 export default {
   name: 'Reviews',
@@ -434,6 +436,7 @@ export default {
         vertical-align: middle;
       }
       .btn {
+        font-size: 0.75rem;
         cursor: pointer;
         overflow: hidden;
         z-index: 0;
@@ -442,6 +445,8 @@ export default {
         border-radius: 2px;
         padding: 6px 7px;
         position: relative;
+        text-decoration: none;
+        color: #000;
         &:hover {
           color: rgba(12, 12, 12, 1);
           background-color: rgba(0, 0, 0, 0.1);
