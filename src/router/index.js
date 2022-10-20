@@ -7,6 +7,7 @@ import Products from '../pages/Products.vue';
 import NotFound from '../pages/NotFound.vue';
 import ReviewPage from '../pages/products/ReviewPage.vue';
 import ReviewCreatePage from '../pages/products/ReviewCreatePage.vue';
+import ReviewEditPage from '../pages/products/ReviewEditPage.vue';
 
 Vue.use(VueRouter);
 
@@ -31,6 +32,11 @@ export default new VueRouter({
       path: '/reviewCreatePage',
       name: 'ReviewCreatePage',
       component: ReviewCreatePage,
+    },
+    {
+      path: '/reviewEditPage/:id',
+      name: 'ReviewEditPage',
+      component: ReviewEditPage,
     },
     {
       path: '/reviewPage',

@@ -30,8 +30,14 @@ const getLeaderBoard = () => {
 const getReviews = () => {
   return instance.get('/reviews');
 };
+const getRealReviews = () => {
+  return instance.get('/real-reviews');
+};
 const postCreateReviews = (reviewData) => {
-  return instance.post(`/reviews`, reviewData);
+  return instance.post(`/real-reviews`, reviewData);
+};
+const postDeleteReviews = (postId) => {
+  return instance.delete(`/real-reviews`, postId);
 };
 
 // curriculum
@@ -65,7 +71,9 @@ export {
   getVisual,
   getLeaderBoard,
   getReviews,
+  getRealReviews,
   postCreateReviews,
+  postDeleteReviews,
   getCurriculum,
   getCreator,
   getCommunity,

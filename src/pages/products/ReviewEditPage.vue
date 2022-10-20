@@ -1,16 +1,16 @@
 <template>
-  <div class="review-pages">
-    <ReviewContainer />
+  <div class="review-edit-pages">
+    <ReviewEditForm />
   </div>
 </template>
 
 <script>
-import ReviewContainer from '../../components/products/review/ReviewContainer.vue';
+import ReviewEditForm from '../../components/products/review/ReviewEditForm.vue';
 
 export default {
-  name: 'ReviewPage',
+  name: 'ReviewEditPage',
   components: {
-    ReviewContainer,
+    ReviewEditForm,
   },
   data() {
     return {};
@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.review-pages {
+.review-edit-pages {
   width: 800px;
   margin: 0 auto;
   padding: 0 0 100px 0;

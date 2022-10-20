@@ -88,10 +88,7 @@
               {{ courseEvaluation() }}
             </span>
             <span class="total"
-              >총
-              {{
-                reviewsData.realReviews ? reviewsData.realReviews.length : null
-              }}개</span
+              >총 {{ reviewsRealData ? reviewsRealData.length : null }}개</span
             >
           </div>
           <ul class="reply-list">
@@ -113,40 +110,13 @@
           </ul></a
         >
       </div>
-      <ul class="thumbs-list">
-        <li>
-          <img
-            src="https://cdn.class101.net/images/e050269e-7213-4c69-818e-a41053dcba74"
-            alt=""
-          />
-        </li>
-        <li>
-          <img
-            src="https://cdn.class101.net/images/f8f64c96-abdc-4bed-8722-944331405f96"
-            alt=""
-          />
-        </li>
-        <li>
-          <img
-            src="https://cdn.class101.net/images/23899222-fce8-4160-addc-b320db24e171"
-            alt=""
-          />
-        </li>
-        <li>
-          <img
-            src="https://cdn.class101.net/images/103b3546-3b71-42dd-8f19-054ff43986ed"
-            alt=""
-          />
-        </li>
-        <li>
-          <img
-            src="https://cdn.class101.net/images/5ec4f59a-a27b-4088-9cef-76104f50479b"
-            alt=""
-          />
+      <ul class="thumbs-list" v-if="reviewsData.reviewPhotos">
+        <li v-for="item in reviewsData.reviewPhotos.slice(0, 5)" :key="item.id">
+          <img :src="item.imageUrl" :alt="item.imageAlt" />
         </li>
       </ul>
-      <ul class="real-review-list" v-if="reviewsData.realReviews">
-        <li v-for="item in reviewsData.realReviews.slice(0, 4)" :key="item.id">
+      <ul class="real-review-list" v-if="reviewsRealData">
+        <li v-for="item in reviewsRealData.slice(0, 4)" :key="item.id">
           <a :href="item.link">
             <header>
               <div class="avatar">
@@ -236,9 +206,7 @@
       <Btn
         :text="
           `${
-            reviewsData.realReviews
-              ? reviewsData.realReviews.slice(4).length
-              : null
+            reviewsRealData ? reviewsRealData.slice(4).length : null
           }개의 후기 더보기`
         "
         :button="false"
@@ -250,7 +218,7 @@
 </template>
 
 <script>
-import { getReviews } from '@/api/index';
+import { getReviews, getRealReviews } from '@/api/index';
 import Btn from '@/components/common/Btn.vue';
 
 export default {
@@ -260,6 +228,7 @@ export default {
     return {
       // getReviews
       reviewsData: {},
+      reviewsRealData: [],
     };
   },
   created() {
@@ -271,7 +240,9 @@ export default {
     async fetchReviews() {
       try {
         const { data } = await getReviews();
+        const { data: realData } = await getRealReviews();
         this.reviewsData = data;
+        this.reviewsRealData = realData;
       } catch (error) {
         console.log(error);
       }
@@ -291,13 +262,13 @@ export default {
 
     // 실제 후강 후기 별점
     courseEvaluation() {
-      if (this.reviewsData.realReviews) {
-        const sum = this.reviewsData.realReviews.reduce(
+      if (this.reviewsRealData) {
+        const sum = this.reviewsRealData.reduce(
           (cnt, item) =>
-            cnt + Number(item.rating) / this.reviewsData.realReviews.length,
+            cnt + Number(item.rating) / this.reviewsRealData.length,
           0
         );
-        return sum.toFixed(2); // 5점 만점
+        return sum.toFixed(1); // 5점 만점
       }
     },
   },

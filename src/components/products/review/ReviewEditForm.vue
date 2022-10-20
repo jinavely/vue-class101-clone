@@ -1,99 +1,7 @@
 <template>
   <Loader v-if="loading" />
   <div v-else class="review-form">
-    <div class="review-student">
-      <h4>수강생 후기 작성</h4>
-      <a href="/reviewPage" class="btn">후기 리스트가기</a>
-    </div>
-
-    <form action="#" @submit.prevent="fetchSubmitForm">
-      <div class="form-control">
-        <label>아바타</label>
-        <input type="file" value="" @change="onFileChange" />
-      </div>
-      <div class="form-control">
-        <label>닉네임</label>
-        <input
-          type="text"
-          value=""
-          required
-          v-model="form.name"
-          placeholder="닉네임을 넣어주세요"
-        />
-        <p class="invalid">아이디를 입력해주세요</p>
-      </div>
-      <div class="form-control">
-        <label>점수 매기기</label>
-        <input
-          type="number"
-          required
-          min="0"
-          max="5"
-          maxlength="1"
-          @input="handleMax"
-          v-model="form.rating"
-        />
-        <p class="invalid">0부터 5점 중에 입력해주세요</p>
-      </div>
-      <div class="form-control">
-        <label>수강 프로세스</label>
-        <input
-          type="number"
-          value=""
-          required
-          min="0"
-          max="100"
-          maxlength="3"
-          v-model="form.process"
-        />
-        <p class="invalid">0% 부터 100% 수강 프로세스를 입력해주세요</p>
-      </div>
-      <div class="form-control">
-        <label>컨텐츠</label>
-        <textarea
-          required
-          maxlength="200"
-          v-model="form.text"
-          placeholder="컨텐츠 입력"
-        ></textarea>
-        <p class="invalid">컨텐츠를 입력해주세요</p>
-      </div>
-      <div class="form-control">
-        <label>댓글수</label>
-        <input
-          type="number"
-          value=""
-          required
-          min="0"
-          max="500"
-          maxlength="4"
-          @input="handleMax"
-          v-model="form.reply"
-        />
-        <p class="invalid">0부터 500중에 댓글수를 입력해주세요</p>
-      </div>
-      <div class="form-control">
-        <label>좋아요</label>
-        <input
-          type="number"
-          value=""
-          required
-          min="0"
-          max="1000"
-          maxlength="4"
-          @input="handleMax"
-          v-model="form.good"
-        />
-        <p class="invalid">0부터 1000중에 좋아요를 입력해주세요</p>
-      </div>
-
-      <input type="hidden" value="" v-model="form.month" />
-      <input type="hidden" value="" v-model="form.day" />
-      <input type="hidden" value="" v-model="form.link" />
-      <input type="hidden" value="" v-model="form.id" />
-
-      <button type="submit" class="btn-submit">확인</button>
-    </form>
+    dsaf
   </div>
 </template>
 
@@ -102,7 +10,7 @@ import Loader from '@/components/common/Loader.vue';
 import { postCreateReviews } from '@/api/index';
 
 export default {
-  name: 'ReviewForm',
+  name: 'ReviewEditForm',
   components: {
     Loader,
   },
