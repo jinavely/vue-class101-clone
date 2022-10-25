@@ -81,7 +81,7 @@
 
 <script>
 import { Fragment } from 'vue-fragment';
-import { getPopularSearch } from '@/api/index';
+import { getPopularSearch } from '@/api/search';
 import HeaderBanner from './HeaderBanner.vue';
 
 export default {

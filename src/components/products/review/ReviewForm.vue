@@ -9,7 +9,7 @@
     <form action="#" @submit.prevent="fetchSubmitForm">
       <div class="form-control">
         <label>아바타</label>
-        <input type="file" value="" @change="onFileChange" />
+        <input type="file" value="" @change="handleFileChange" />
       </div>
       <div class="form-control">
         <label>닉네임</label>
@@ -30,7 +30,6 @@
           min="0"
           max="5"
           maxlength="1"
-          @input="handleMax"
           v-model="form.rating"
         />
         <p class="invalid">0부터 5점 중에 입력해주세요</p>
@@ -67,7 +66,6 @@
           min="0"
           max="500"
           maxlength="4"
-          @input="handleMax"
           v-model="form.reply"
         />
         <p class="invalid">0부터 500중에 댓글수를 입력해주세요</p>
@@ -81,7 +79,6 @@
           min="0"
           max="1000"
           maxlength="4"
-          @input="handleMax"
           v-model="form.good"
         />
         <p class="invalid">0부터 1000중에 좋아요를 입력해주세요</p>
@@ -152,24 +149,17 @@ export default {
         console.log(error);
       }
     },
-
-    onFileChange() {
-      console.log(this.form);
-      // this.form.avatar = event.target.files[0].name;
-      // this.$emit('update:modelValue', event.target.files[0]);
-    },
-    handleMax(event) {
-      let val = event.target.value;
-      const maxlength = event.target.attributes.maxlength.nodeValue;
-      const max = event.target.attributes.max.nodeValue;
-
-      this.form.rating = val.substr(0, maxlength);
-      if (Number(max) < Number(val)) {
-        alert('올바른 숫자를 넣어주세요');
-        this.form.rating = '';
-        return;
+    // 파일 이미지
+    // 파일 이미지
+    handleFileChange(event) {
+      const file = event.target.files[0];
+      if (file && file.type.match(/^image\/(png|jpeg|gif|webp)$/)) {
+        this.form.avatar = window.URL.createObjectURL(file);
+        this.prevAvatar = this.form.avatar;
       }
     },
+    // validation
+    handleValid() {},
   },
 };
 </script>

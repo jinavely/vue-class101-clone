@@ -4,18 +4,6 @@ const instance = axios.create({
   baseURL: process.env.VUE_APP_API_URL,
 });
 
-// Search
-const getPopularSearch = async () => {
-  return fetch(
-    `${process.env.VUE_APP_API_SEARCH}/movie/popular?api_key=${process.env.VUE_APP_API_KEY}&language=${process.env.VUE_APP_API_LANGUAGE}`
-  ).then((response) => response.json());
-};
-const getSearch = async (keyword) => {
-  return fetch(
-    `${process.env.VUE_APP_API_SEARCH}/search/movie?api_key=${process.env.VUE_APP_API_KEY}&language=${process.env.VUE_APP_API_LANGUAGE}&query=${keyword}`
-  ).then((response) => response.json());
-};
-
 // visual
 const getVisual = () => {
   return instance.get('/visual');
@@ -33,11 +21,17 @@ const getReviews = () => {
 const getRealReviews = () => {
   return instance.get('/real-reviews');
 };
+const getRealReview = (postId) => {
+  return instance.get(`/real-reviews/${postId}`);
+};
 const postCreateReviews = (reviewData) => {
   return instance.post(`/real-reviews`, reviewData);
 };
 const postDeleteReviews = (postId) => {
-  return instance.delete(`/real-reviews`, postId);
+  return instance.delete(`/real-reviews/${postId}`);
+};
+const postEditReviews = (postId, reviewData) => {
+  return instance.put(`/real-reviews/${postId}`, reviewData);
 };
 
 // curriculum
@@ -66,14 +60,14 @@ const getAside = () => {
 };
 
 export {
-  getPopularSearch,
-  getSearch,
   getVisual,
   getLeaderBoard,
   getReviews,
   getRealReviews,
+  getRealReview,
   postCreateReviews,
   postDeleteReviews,
+  postEditReviews,
   getCurriculum,
   getCreator,
   getCommunity,

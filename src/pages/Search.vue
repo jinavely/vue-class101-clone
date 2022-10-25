@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { getSearch } from '@/api/index';
+import { getSearch } from '@/api/search';
 import Loader from '../components/common/Loader.vue';
 
 export default {

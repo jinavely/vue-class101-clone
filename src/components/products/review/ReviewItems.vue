@@ -115,8 +115,8 @@ export default {
     },
 
     // 수정
-    handleModify(_id) {
-      this.$emit('handleModify', _id);
+    handleEdit(_id) {
+      this.$emit('handleEdit', _id);
     },
 
     // 삭제

@@ -9,7 +9,7 @@
     <ReviewItems
       :reviewsData="reviewsData"
       @handlePopupOpen="handlePopupOpen"
-      @handleModify="handleModify"
+      @handleEdit="handleEdit"
       @handleDelete="handleDelete"
     />
 
@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { getRealReviews, postDeleteReviews } from '../../../api';
+import { getRealReviews, postDeleteReviews } from '@/api/index';
 import Loader from '@/components/common/Loader.vue';
 import LayerPopup from '../../common/LayerPopup.vue';
 import ReviewItems from './ReviewItems.vue';
@@ -48,6 +48,7 @@ export default {
       // reviewsData
       reviewsData: [],
       reviewDetail: [],
+      postItemId: 0,
     };
   },
   created() {
@@ -66,12 +67,10 @@ export default {
     },
 
     // deleteReviews
-    async deleteReviewProduct(_id) {
+    async deleteReviewProduct() {
       try {
-        if (confirm('삭제하시겠습니까?')) {
-          console.log(_id);
-          await postDeleteReviews(_id);
-        }
+        await postDeleteReviews(this.postItemId);
+        this.getReviewProduct();
       } catch (error) {
         console.log(error);
       }
@@ -79,12 +78,14 @@ export default {
 
     // 리뷰 삭제
     handleDelete(_id) {
-      this.deleteReviewProduct(_id);
+      this.postItemId = _id;
+      this.deleteReviewProduct();
     },
 
     // 리뷰 수정
-    handleModify() {
-      this.$route.push('/');
+    handleEdit(_id) {
+      this.postItemId = _id;
+      this.$router.push(`/reviewEditPage/${this.postItemId}`);
     },
 
     // popup

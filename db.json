@@ -292,17 +292,17 @@
       "reply": 0
     },
     {
-      "id": 1666257583703,
+      "id": 1666599282878,
       "link": "",
-      "avatar": "https://class101.net/images/default-user.png",
+      "avatar": "blob:http://localhost:8080/ef5cd5c1-e5aa-4fd6-8f9a-fab18545c41a",
       "name": "테스트",
-      "rating": "4",
+      "rating": "5",
       "process": "45",
-      "text": "3434 434 ㅅㄷㄹㅇㄴㄻㄴㅇㄹ",
-      "reply": "23",
+      "text": "ㅁㄴ아ㅣ렃sdfsadfasfdadsf",
+      "reply": "32",
       "good": "4",
-      "month": 10,
-      "day": 20
+      "month": "4",
+      "day": "4"
     }
   ],
   "aside": {
